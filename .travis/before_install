@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+GHC_VERSION=$(ghc --version | sed 's/^[^0-9]\+//')
+
+if [[ $GHC_VERSION == 7.8.* ]];;
+    cabal install happy
+    happy --version
+else
+    true
+fi
